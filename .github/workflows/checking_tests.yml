@@ -22,14 +22,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      
+
+      - name: Install Cypress Globally
+        run: npm install -g cypress
+
       - name: Build App
         run: npm run build
 
       - name: Seed Database
         run: npm run seed
 
-      - name: Run Tests
-        run: npm run test-component
-
-
+      - name: Run Cypress Component Tests
+        run: npx cypress run --component

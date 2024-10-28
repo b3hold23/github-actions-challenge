@@ -29,6 +29,9 @@ jobs:
       - name: Seed Database
         run: npm run seed
 
+      - name: Start Server
+        run: npm run start
+
       - name: Run vitest tests
         run: npm run test
 

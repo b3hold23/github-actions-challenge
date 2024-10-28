@@ -24,7 +24,10 @@ jobs:
         run: npm install
       
       - name: Build App
-        run: npm run build && npm run seed
+        run: npm run build
+
+      - name: Seed Database
+        run: npm run seed
 
       - name: Run vitest tests
         run: npm run test

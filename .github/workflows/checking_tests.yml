@@ -30,7 +30,7 @@ jobs:
         run: npm run seed
 
       - name: Start Server
-        run: npm run start
+        run: npm run develop
 
       - name: Run vitest tests
         run: npm run test

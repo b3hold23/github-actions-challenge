@@ -1,13 +1,14 @@
-name: Run Cypress Component Tests
+name: Checking Tests
 
 on:
   pull_request:
     branches:
+      - main
       - develop
 
 jobs:
   test:
-    name: Cypress Component Tests
+    name: Checking Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +22,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      
+      - name: Build App
+        run: npm run build
 
-      - name: Run Cypress Component Tests
+      - name: Seed Database
+        run: npm run seed
+
+      - name: Run Tests
         run: npm run test-component
-
 
 

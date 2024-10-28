@@ -8,23 +8,29 @@ on:
 
 jobs:
   test:
-    name: Checking Tests
+    name: Checking tests
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-        - name: Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 21.x
 
       - name: Install dependencies
         run: npm install
-      
+
+      - name: Install Cypress Globally
+        run: npm install -g cypress
+
       - name: Build App
         run: npm run build
 
-      - name: Run vitest tests
-        run: npm run test
+      - name: Seed Database
+        run: npm run seed
+
+      - name: Run Cypress Component Tests
+        run: npx cypress run --component

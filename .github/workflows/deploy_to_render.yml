@@ -1,5 +1,5 @@
 
-name: Deploy To Render
+name: deploy to render
 
 on:
   push:
@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install Cypress Globally
+        run: npm install -g cypress
       - name: Test
         run: |
           npm install
